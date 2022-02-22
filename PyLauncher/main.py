@@ -8,6 +8,8 @@ import sys
 import json
 import os
 import shutil
+import importlib.resources as pkg_resources
+from . import resources
 
 from PyQt5.QtWidgets import QApplication
 
@@ -72,8 +74,11 @@ class QThreadImpl(QThread):
 def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
+
+    config = pkg_resources.read_text(resources, "config.json")
+
     if not os.path.exists('~/.config/PyLauncher/config.json'):
-        shutil.copy("PyLauncher/resources/config.json", "~/.config/PyLauncher/")
+        shutil.copy(config, "~/.config/PyLauncher/")
 
     with open('~/.config/PyLauncher/config.json') as json_file:
         data = json.load(json_file)
