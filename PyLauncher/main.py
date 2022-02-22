@@ -7,6 +7,7 @@ from PyQt5 import *
 import sys
 import json
 import os
+import shutil
 
 from PyQt5.QtWidgets import QApplication
 
@@ -71,7 +72,10 @@ class QThreadImpl(QThread):
 def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
-    with open('resources/config.json') as json_file:
+    if not os.path.exists('~/.config/PyLauncher/config.json'):
+        shutil.copy("./resources/config.json", "~/.config/PyLauncher/")
+
+    with open('~/.config/PyLauncher/config.json') as json_file:
         data = json.load(json_file)
 
     program_list_model = ProgramsListModel(data)
