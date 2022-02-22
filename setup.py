@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='py-launcher',
+    name='py_launcher',
     version='1.0.0',
     packages=[''],
     url='',
