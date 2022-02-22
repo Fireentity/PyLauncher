@@ -1,1 +1,5 @@
-from PyLauncher import start
+import main
+
+
+def start():
+    main.start()
