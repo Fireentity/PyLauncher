@@ -74,7 +74,7 @@ def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
 
-    config = pkg_resources.read_text(__package__, "config.json")
+    config = pkg_resources.read_text(__package__, "configs/config.json")
 
     if not os.path.exists('~/.config/PyLauncher/config.json'):
         shutil.copy(config, "~/.config/PyLauncher/")
@@ -92,6 +92,6 @@ def start():
 
     view.rootContext().setContextProperty("filter", filter_proxy_model)
     view.rootContext().setContextProperty("text_controller", text_controller)
-    view.load("window.configs")
+    view.load("configs/window.qml")
 
     sys.exit(app.exec())
