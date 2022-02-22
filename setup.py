@@ -4,7 +4,7 @@ setup(
     name='PyLauncher',
     version='1.0.0',
     packages=find_packages(),
-    package_data={'PyLauncher': ['resources/*']},
+    package_data={'PyLauncher': ['configs/*']},
     url='',
     license='MIT',
     author='lorenzo',
