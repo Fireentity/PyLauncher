@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='py_launcher',
     version='1.0.0',
-    packages=[''],
+    packages=['main'],
     url='',
     license='MIT',
     author='lorenzo',

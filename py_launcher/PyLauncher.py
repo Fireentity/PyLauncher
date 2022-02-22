@@ -1,4 +1,3 @@
-import asyncio
 import typing
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -8,12 +7,8 @@ from PyQt5 import *
 import sys
 import json
 import os
-import subprocess
 
 from PyQt5.QtWidgets import QApplication
-
-app = QApplication(sys.argv)
-view = QQmlApplicationEngine(app)
 
 
 class TextController(QObject):
@@ -21,7 +16,7 @@ class TextController(QObject):
         super().__init__()
         self.app = app
         self.filter_proxy_model = filter_proxy_model
-        self.thread = QThreadImpl(self)
+        self.thread = QThreadImpl(self, app)
 
     @pyqtSlot(str)
     def on_enter(self, text):
@@ -57,13 +52,14 @@ class ProgramsListModel(QAbstractListModel):
 
 class QThreadImpl(QThread):
 
-    def __init__(self, parent=None):
+    def __init__(self, app, parent=None):
         super().__init__(parent)
+        self.app = app
         self.command = None
         self.finished.connect(self.on_finished)
 
     def on_finished(self):
-        app.exit(0)
+        self.app.exit(0)
 
     def set_command(self, command):
         self.command = command
@@ -72,21 +68,22 @@ class QThreadImpl(QThread):
         os.system("(" + self.command + "& ) && exit")
 
 
-data = None
-with open('config.json') as json_file:
-    data = json.load(json_file)
+def start():
+    app = QApplication(sys.argv)
+    view = QQmlApplicationEngine(app)
+    with open('config.json') as json_file:
+        data = json.load(json_file)
 
-program_list_model = ProgramsListModel(data)
-filter_proxy_model = QSortFilterProxyModel()
-filter_proxy_model.setFilterRole(0)
-filter_proxy_model.setSourceModel(program_list_model)
-program_list_model.setParent(filter_proxy_model)
+    program_list_model = ProgramsListModel(data)
+    filter_proxy_model = QSortFilterProxyModel()
+    filter_proxy_model.setFilterRole(0)
+    filter_proxy_model.setSourceModel(program_list_model)
+    program_list_model.setParent(filter_proxy_model)
 
-text_controller = TextController(filter_proxy_model, app)
+    text_controller = TextController(filter_proxy_model, app)
 
-view.rootContext().setContextProperty("filter", filter_proxy_model)
-view.rootContext().setContextProperty("text_controller", text_controller)
-view.load("window.qml")
-root_object = view.rootObjects()[0]
+    view.rootContext().setContextProperty("filter", filter_proxy_model)
+    view.rootContext().setContextProperty("text_controller", text_controller)
+    view.load("window.qml")
 
-sys.exit(app.exec())
+    sys.exit(app.exec())
