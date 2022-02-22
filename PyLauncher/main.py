@@ -71,7 +71,7 @@ class QThreadImpl(QThread):
 def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
-    with open('config.json') as json_file:
+    with open('resources/config.json') as json_file:
         data = json.load(json_file)
 
     program_list_model = ProgramsListModel(data)
