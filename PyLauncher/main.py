@@ -75,7 +75,7 @@ def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
 
-    config = pkg_resources.read_text("configs", "config.json")
+    config = pkg_resources.read_text("PyLauncher.configs", "config.json")
 
     if not os.path.exists('~/.config/PyLauncher/config.json'):
         shutil.copy(config, "~/.config/PyLauncher/")
