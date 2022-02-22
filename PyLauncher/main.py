@@ -73,7 +73,7 @@ def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
     if not os.path.exists('~/.config/PyLauncher/config.json'):
-        shutil.copy("./resources/config.json", "~/.config/PyLauncher/")
+        shutil.copy("PyLauncher/resources/config.json", "~/.config/PyLauncher/")
 
     with open('~/.config/PyLauncher/config.json') as json_file:
         data = json.load(json_file)
