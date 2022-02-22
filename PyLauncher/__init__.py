@@ -1,4 +1,4 @@
-import main
+import PyLauncher.main
 
 
 def start():
