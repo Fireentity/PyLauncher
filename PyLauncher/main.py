@@ -89,6 +89,6 @@ def start():
 
     view.rootContext().setContextProperty("filter", filter_proxy_model)
     view.rootContext().setContextProperty("text_controller", text_controller)
-    view.load("window.qml")
+    view.load("PyLauncher/configs/window.qml")
 
     sys.exit(app.exec())
