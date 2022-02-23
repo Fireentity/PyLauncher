@@ -1,0 +1,10 @@
+setup.py
+PyLauncher/__init__.py
+PyLauncher/main.py
+PyLauncher.egg-info/PKG-INFO
+PyLauncher.egg-info/SOURCES.txt
+PyLauncher.egg-info/dependency_links.txt
+PyLauncher.egg-info/top_level.txt
+PyLauncher/configs/__init__.py
+PyLauncher/configs/config.json
+PyLauncher/configs/window.qml

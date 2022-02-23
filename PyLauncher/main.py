@@ -7,6 +7,9 @@ from PyQt5 import *
 import sys
 import json
 import os
+import shutil
+import importlib.resources as pkg_resources
+from . import configs
 
 from PyQt5.QtWidgets import QApplication
 
@@ -72,9 +75,8 @@ def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
 
-    data = None
-    with open('/home/lorenzo/.config/PyLauncher/config.json') as json_file:
-        data = json.load(json_file)
+    config = pkg_resources.read_text(configs, "config.json")
+    data = json.loads(config)
 
     program_list_model = ProgramsListModel(data)
     filter_proxy_model = QSortFilterProxyModel()
@@ -86,6 +88,6 @@ def start():
 
     view.rootContext().setContextProperty("filter", filter_proxy_model)
     view.rootContext().setContextProperty("text_controller", text_controller)
-    view.load("PyLauncher/configs/window.qml")
+    view.load("window.qml")
 
     sys.exit(app.exec())
