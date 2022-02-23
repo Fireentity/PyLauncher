@@ -7,9 +7,6 @@ from PyQt5 import *
 import sys
 import json
 import os
-import shutil
-import importlib.resources as pkg_resources
-from . import configs
 
 from PyQt5.QtWidgets import QApplication
 
