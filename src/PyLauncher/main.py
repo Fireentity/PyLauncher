@@ -69,6 +69,11 @@ def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
 
+    font_id = QFontDatabase.addApplicationFont("/home/lorenzo/.local/share/fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf")
+    font_name = QFontDatabase.applicationFontFamilies(font_id)[0]
+    font = QFont(font_name, pointSize=15)
+    app.setFont(font)
+
     user_config_file_path = os.path.expanduser("~") + "/.config/PyLauncher/config.json"
     user_config_folder_path = os.path.expanduser("~") + "/.config/PyLauncher/"
 
@@ -97,9 +102,5 @@ def start():
     window_qml = pkg_resources.read_text(data, "window.qml")
     # Loading file from an array of bytes
     view.loadData(QByteArray(bytearray(window_qml, "utf_8")))
-    font_id = QFontDatabase.addApplicationFont("/home/lorenzo/.local/share/fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf")
-    font_name = QFontDatabase.applicationFontFamilies(font_id)[0]
-    font = QFont(font_name, pointSize=15)
-    app.setFont(font)
 
     sys.exit(app.exec())
