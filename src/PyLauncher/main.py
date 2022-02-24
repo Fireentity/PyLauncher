@@ -84,9 +84,9 @@ def start():
             file.write(config_json)
 
     with open(user_config_file_path, 'r') as file:
-        data = json.load(file)
+        json_data = json.load(file)
 
-    program_list_model = ProgramsListModel(data)
+    program_list_model = ProgramsListModel(json_data)
     filter_proxy_model = QSortFilterProxyModel()
     filter_proxy_model.setFilterRole(0)
     filter_proxy_model.setSourceModel(program_list_model)
