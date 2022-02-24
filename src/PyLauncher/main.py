@@ -19,7 +19,7 @@ class TextController(QObject):
         super().__init__(parent=parent)
         self.app = app
         self.filter_proxy_model = filter_proxy_model
-        self.thread = QThreadImpl(app, self, parent)
+        self.thread = QThreadImpl(app, parent, self)
 
     @pyqtSlot(str)
     def on_enter(self, text):
