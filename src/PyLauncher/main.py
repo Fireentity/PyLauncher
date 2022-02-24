@@ -23,7 +23,7 @@ class TextController(QObject):
     def on_enter(self, text):
         os.system("(" + text + "& ) && exit")
         self.app.exit(0)
-        self.parent().close()
+        self.parent().rootObjects()[0].close()
         print("exit")
 
     @pyqtSlot(str)
