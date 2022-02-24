@@ -100,6 +100,6 @@ def start():
 
     window_qml = pkg_resources.read_text(data, "window.qml")
 
-    view.loadData(QByteArray(bytearray(window_qml, encodings.utf_8)))
+    view.loadData(QByteArray(bytearray(window_qml, "utf_8")))
 
     sys.exit(app.exec())
