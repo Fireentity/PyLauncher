@@ -58,7 +58,7 @@ Window {
                     activeFocusOnPress: true
                     cursorVisible: true
                     onAccepted: {
-                        text_controller.on_enter(text)
+                        text_controller.on_enter(list_view.currentItem.children[0].text)
                     }
                     Keys.onTabPressed: {
                         text=list_view.currentItem.children[0].text
