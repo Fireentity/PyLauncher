@@ -103,4 +103,4 @@ def start():
     # Loading file from an array of bytes
     view.loadData(QByteArray(bytearray(window_qml, "utf_8")))
 
-    sys.exit(app.exec())
+    app.exec()
