@@ -1,5 +1,2 @@
-import src.PyLauncher.main
+from .main import start
 
-
-def start():
-    main.start()
