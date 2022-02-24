@@ -24,7 +24,6 @@ class TextController(QObject):
         os.system("(" + text + "& ) && exit")
         self.app.exit(0)
         self.parent().rootObjects()[0].close()
-        print("exit")
 
     @pyqtSlot(str)
     def on_edit(self, text):
@@ -50,21 +49,6 @@ class ProgramsListModel(QAbstractListModel):
 
     def data(self, model_index: QModelIndex, role=None):
         return self.entries[model_index.row()]
-
-
-class QThreadImpl(QThread):
-
-    def __init__(self, app, view, parent=None):
-        super().__init__(parent)
-        self.app = app
-        self.view = view
-        self.command = None
-
-    def set_command(self, command):
-        self.command = command
-
-    def run(self):
-        os.system("(" + self.command + "& ) && exit")
 
 
 def start():
