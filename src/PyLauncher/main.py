@@ -74,8 +74,10 @@ def start():
     view = QQmlApplicationEngine(app)
 
     user_config_file_path = os.path.expanduser("~") + "/.config/PyLauncher/config.json"
+    user_config_folder_path = os.path.expanduser("~") + "/.config/PyLauncher/"
 
     if not os.path.exists(user_config_file_path):
+        os.mkdir(user_config_folder_path)
         config_json = pkg_resources.read_text(config, "config.json")
         with open(user_config_file_path, 'w+') as file:
             file.write(config_json)
