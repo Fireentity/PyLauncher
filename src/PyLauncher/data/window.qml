@@ -37,7 +37,7 @@ Window {
             spacing:10
             anchors.fill: parent
 
-            Row {
+            RowLayout {
 
                 height: 30
                 width: parent.width
@@ -46,13 +46,13 @@ Window {
                     verticalAlignment: TextInput.AlignVCenter
                     color: "#a9b7c6"
                     text: "command: "
-                    height: parent.height
+                    Layout.fillHeight: true
                 }
 
                 TextInput {
                     id: search_field
                     verticalAlignment: TextInput.AlignVCenter
-                    height: parent.height
+                    Layout.fillHeight: true
                     Layout.fillWidth: true
                     color: "#a9b7c6"
                     activeFocusOnPress: true
