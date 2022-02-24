@@ -6,7 +6,7 @@ setup(
     name='PyLauncher',
     version='1.0.0',
     packages=find_packages("src"),
-    package_dir={"src": "PyLauncher"},
+    package_dir={"": "src"},
     package_data={
         "PyLauncher": ["config/*.json", "data/*.qml"]
     },
