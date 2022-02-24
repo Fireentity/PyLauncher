@@ -13,7 +13,7 @@ setup(
     install_requires=["PyQt5;python_version<'5.15.6'"],
     python_requires=">=3.8",
     data_files=[
-        (site.USER_BASE + "/config.json", ['PyLauncher/config/config.json'])
+        (site.USER_BASE, ['PyLauncher/config/config.json'])
     ],
     url='',
     license='MIT',
