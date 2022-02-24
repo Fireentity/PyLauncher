@@ -20,6 +20,12 @@ Window {
     width: 800
     height: 200
 
+    onActiveChanged: {
+        if (!active) {
+            Qt.callLater(Qt.quit)
+        }
+    }
+
     Rectangle {
         objectName: "main_container"
         anchors.centerIn: parent
