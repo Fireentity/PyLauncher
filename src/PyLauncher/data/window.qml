@@ -20,7 +20,7 @@ Window {
     width: 800
     height: 200
 
-    onFocusOut: {
+    onFocusOutEvent: {
         console.log("ciao")
     }
 
