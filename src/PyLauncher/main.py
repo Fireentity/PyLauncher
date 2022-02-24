@@ -96,6 +96,8 @@ def start():
 
     view.rootContext().setContextProperty("filter", filter_proxy_model)
     view.rootContext().setContextProperty("text_controller", text_controller)
-    view.load(QUrl.fromLocalFile("./data/window.qml"))
+    qurl = QUrl()
+    qurl.setPath("./config/config.json")
+    view.load()
 
     sys.exit(app.exec())
