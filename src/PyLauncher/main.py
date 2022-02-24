@@ -7,7 +7,7 @@ from PyQt5 import *
 import sys
 import json
 import os
-import shutil
+from . import config
 import importlib.resources as pkg_resources
 from PyQt5.QtWidgets import QApplication
 
@@ -76,9 +76,9 @@ def start():
     user_config_file_path = os.path.expanduser("~") + "/.config/PyLauncher/config.json"
 
     if not os.path.exists(user_config_file_path):
-        config = pkg_resources.read_text("config", "config.json")
+        config_json = pkg_resources.read_text(config, "config.json")
         with open(user_config_file_path, 'w') as file:
-            file.write(config)
+            file.write(config_json)
 
     with open(user_config_file_path, 'w') as file:
         data = json.load(file)
