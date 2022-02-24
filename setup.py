@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 setup(
     name='PyLauncher',
     version='1.0.0',
-    packages=find_packages("PyLauncher"),
+    packages=find_packages(""),
     package_dir={"": "PyLauncher"},
     package_data={
         "PyLauncher": ["config/*.json", "data/*.qml"]
