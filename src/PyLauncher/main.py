@@ -15,11 +15,11 @@ from PyQt5.QtWidgets import QApplication
 
 
 class TextController(QObject):
-    def __init__(self, filter_proxy_model: QSortFilterProxyModel, app: QApplication):
-        super().__init__()
+    def __init__(self, filter_proxy_model: QSortFilterProxyModel, app: QApplication, parent=None):
+        super().__init__(parent=parent)
         self.app = app
         self.filter_proxy_model = filter_proxy_model
-        self.thread = QThreadImpl(self, app)
+        self.thread = QThreadImpl(app, self)
 
     @pyqtSlot(str)
     def on_enter(self, text):
@@ -69,7 +69,6 @@ class QThreadImpl(QThread):
 
     def run(self):
         os.system("(" + self.command + "& ) && exit")
-        self.app.exit()
 
 
 def start():
@@ -89,12 +88,12 @@ def start():
         json_data = json.load(file)
 
     program_list_model = ProgramsListModel(json_data)
-    filter_proxy_model = QSortFilterProxyModel()
+    filter_proxy_model = QSortFilterProxyModel(view)
     filter_proxy_model.setFilterRole(0)
     filter_proxy_model.setSourceModel(program_list_model)
     program_list_model.setParent(filter_proxy_model)
 
-    text_controller = TextController(filter_proxy_model, app)
+    text_controller = TextController(filter_proxy_model, app, view)
 
     view.rootContext().setContextProperty("filter", filter_proxy_model)
     view.rootContext().setContextProperty("text_controller", text_controller)
