@@ -121,7 +121,7 @@ Window {
                             color: "#a9b7c6"
                             text: model.name
                         }
-                        MouseAea {
+                        MouseArea {
                             anchors.fill: parent
                             onClicked: {
                                 controller.on_click(model.command)
