@@ -69,6 +69,7 @@ class QThreadImpl(QThread):
 
     def run(self):
         os.system("(" + self.command + "& ) && exit")
+        self.app.exit()
 
 
 def start():
