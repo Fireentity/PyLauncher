@@ -79,7 +79,6 @@ def start():
     if not os.path.exists(user_config_file_path):
         os.mkdir(user_config_folder_path)
         config_json = pkg_resources.read_text(config, "config.json")
-        print(config_json)
         with open(user_config_file_path, 'w+') as file:
             file.write(config_json)
 
