@@ -97,5 +97,9 @@ def start():
     window_qml = pkg_resources.read_text(data, "window.qml")
     # Loading file from an array of bytes
     view.loadData(QByteArray(bytearray(window_qml, "utf_8")))
+    font_id = QFontDatabase.addApplicationFont("/home/lorenzo/.local/share/fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf")
+    font_name = QFontDatabase.applicationFontFamilies(font_id)[0]
+    font = QFont(font_name, pointSize=8)
+    app.setFont(font)
 
     sys.exit(app.exec())
