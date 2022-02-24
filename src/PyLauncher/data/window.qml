@@ -20,7 +20,7 @@ Window {
     width: 800
     height: 200
 
-    function focusOutEvent(event) {
+    onActiveChanged: {
         console.log("ciao")
     }
 

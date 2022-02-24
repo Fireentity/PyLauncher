@@ -71,7 +71,7 @@ def start():
 
     font_id = QFontDatabase.addApplicationFont("/home/lorenzo/.local/share/fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf")
     font_name = QFontDatabase.applicationFontFamilies(font_id)[0]
-    font = QFont(font_name, pointSize=15)
+    font = QFont(font_name, pointSize=12)
     app.setFont(font)
 
     user_config_file_path = os.path.expanduser("~") + "/.config/PyLauncher/config.json"
