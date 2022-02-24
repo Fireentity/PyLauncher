@@ -103,6 +103,5 @@ def start():
     window_qml = pkg_resources.read_text(data, "window.qml")
     # Loading file from an array of bytes
     view.loadData(QByteArray(bytearray(window_qml, "utf_8")))
-    app.setAttribute(Qt.)
 
     sys.exit(app.exec())
