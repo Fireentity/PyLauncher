@@ -63,7 +63,7 @@ class QThreadImpl(QThread):
         self.finished.connect(self.on_finished)
 
     def on_finished(self):
-        self.quit()
+        self.parent().quit()
         self.app.quit()
 
     def set_command(self, command):
