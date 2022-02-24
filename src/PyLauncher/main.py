@@ -65,8 +65,7 @@ class QThreadImpl(QThread):
         self.command = command
 
     def run(self):
-        os.system("(" + self.command + "& ) && exit")
-
+        pass
 
 def start():
     app = QApplication(sys.argv)
