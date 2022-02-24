@@ -1,3 +1,4 @@
+import encodings
 import typing
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -99,6 +100,6 @@ def start():
 
     window_qml = pkg_resources.read_text(data, "window.qml")
 
-    view.loadData(QByteArray(bytearray(window_qml)))
+    view.loadData(QByteArray(bytearray(window_qml, encodings.utf_8)))
 
     sys.exit(app.exec())
