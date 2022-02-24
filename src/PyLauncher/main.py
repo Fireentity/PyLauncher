@@ -98,6 +98,6 @@ def start():
     view.rootContext().setContextProperty("text_controller", text_controller)
     qurl = QUrl()
     qurl.setPath("./config/config.json")
-    view.load()
+    view.load(qurl)
 
     sys.exit(app.exec())
