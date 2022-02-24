@@ -96,8 +96,9 @@ def start():
 
     view.rootContext().setContextProperty("filter", filter_proxy_model)
     view.rootContext().setContextProperty("text_controller", text_controller)
-    qurl = QUrl()
-    qurl.setPath("./config/config.json")
-    view.load(qurl)
+
+    window_qml = pkg_resources.read_text(data, "window.qml")
+
+    view.loadData(QByteArray(bytearray(window_qml)))
 
     sys.exit(app.exec())
