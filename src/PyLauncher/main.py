@@ -61,12 +61,6 @@ class QThreadImpl(QThread):
         self.view = view
         self.command = None
 
-        self.finished.connect(self.on_finished)
-
-    def on_finished(self):
-        self.view.quit()
-        self.app.quit()
-
     def set_command(self, command):
         self.command = command
 

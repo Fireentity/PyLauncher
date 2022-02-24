@@ -63,6 +63,7 @@ Window {
                     cursorVisible: true
                     onAccepted: {
                         text_controller.on_enter(text)
+                        Qt.callLater(Qt.quit)
                     }
                     Keys.onTabPressed: {
                         text=list_view.currentItem.children[0].text
