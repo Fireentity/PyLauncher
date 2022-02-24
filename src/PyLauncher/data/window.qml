@@ -7,10 +7,6 @@ import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 
 Window {
-    FontLoader {
-        id: localFont
-        source: "/home/lorenzo/.local/share/fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf"
-    }
 
     Component.onCompleted: {
         requestActivate()
@@ -45,8 +41,6 @@ Window {
                 Text {
                     verticalAlignment: TextInput.AlignVCenter
                     color: "#a9b7c6"
-                    font.pixelSize: 15
-                    font.family: localFont.name
                     text: "command: "
                     height: parent.height
                 }
@@ -57,8 +51,6 @@ Window {
                     height: parent.height
                     Layout.fillWidth: true
                     color: "#a9b7c6"
-                    font.pixelSize: 15
-                    font.family: localFont.name
                     activeFocusOnPress: true
                     cursorVisible: true
                     onAccepted: {
@@ -122,8 +114,6 @@ Window {
                         Text {
                             id: text_field
                             anchors.verticalCenter: parent.verticalCenter
-                            font.pixelSize: 15
-                            font.family: localFont.name
                             color: "#a9b7c6"
                             text: model.name
                         }
