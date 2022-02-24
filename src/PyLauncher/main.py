@@ -19,7 +19,7 @@ class TextController(QObject):
         super().__init__(parent=parent)
         self.app = app
         self.filter_proxy_model = filter_proxy_model
-        self.thread = QThreadImpl(app, self)
+        self.thread = QThreadImpl(app, self, parent)
 
     @pyqtSlot(str)
     def on_enter(self, text):
@@ -55,15 +55,16 @@ class ProgramsListModel(QAbstractListModel):
 
 class QThreadImpl(QThread):
 
-    def __init__(self, app, parent=None):
+    def __init__(self, app, view, parent=None):
         super().__init__(parent)
         self.app = app
+        self.view = view
         self.command = None
 
         self.finished.connect(self.on_finished)
 
     def on_finished(self):
-        self.parent().quit()
+        self.view.quit()
         self.app.quit()
 
     def set_command(self, command):
