@@ -62,7 +62,7 @@ class QThreadImpl(QThread):
         self.finished.connect(self.on_finished)
 
     def on_finished(self):
-        self.app.exit(0)
+        self.app.quit()
 
     def set_command(self, command):
         self.command = command
@@ -103,5 +103,6 @@ def start():
     window_qml = pkg_resources.read_text(data, "window.qml")
     # Loading file from an array of bytes
     view.loadData(QByteArray(bytearray(window_qml, "utf_8")))
+    app.setAttribute(Qt.)
 
     sys.exit(app.exec())
