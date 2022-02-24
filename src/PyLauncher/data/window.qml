@@ -8,6 +8,7 @@ import QtGraphicalEffects 1.0
 
 Window {
     FontLoader {
+        name: "SourceCode"
         id: localFont
         source: "/home/lorenzo/.local/share/fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf"
     }
