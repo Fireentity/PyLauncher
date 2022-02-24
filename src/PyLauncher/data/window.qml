@@ -20,10 +20,8 @@ Window {
     width: 800
     height: 200
 
-    onActiveChanged: {
-        if (!active) {
-            Qt.callLater(Qt.quit)
-        }
+    onFocusOut: {
+        console.log("ciao")
     }
 
     Rectangle {
@@ -123,7 +121,7 @@ Window {
                             color: "#a9b7c6"
                             text: model.name
                         }
-                        MouseArea {
+                        MouseAea {
                             anchors.fill: parent
                             onClicked: {
                                 controller.on_click(model.command)
