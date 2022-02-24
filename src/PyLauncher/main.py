@@ -8,6 +8,7 @@ import sys
 import json
 import os
 from . import config
+from . import data
 import importlib.resources as pkg_resources
 from PyQt5.QtWidgets import QApplication
 
@@ -95,6 +96,6 @@ def start():
 
     view.rootContext().setContextProperty("filter", filter_proxy_model)
     view.rootContext().setContextProperty("text_controller", text_controller)
-    view.load(__package__ + "/data/window.qml")
+    view.load(QUrl.fromLocalFile("./data/window.qml"))
 
     sys.exit(app.exec())
