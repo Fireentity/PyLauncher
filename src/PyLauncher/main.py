@@ -91,15 +91,17 @@ def start():
     filter_proxy_model = QSortFilterProxyModel(view)
     filter_proxy_model.setFilterRole(0)
     filter_proxy_model.setSourceModel(program_list_model)
-    program_list_model.setParent(filter_proxy_model)
+    program_list_model.setParent(view)
 
     text_controller = TextController(filter_proxy_model, app, view)
 
     view.rootContext().setContextProperty("filter", filter_proxy_model)
     view.rootContext().setContextProperty("text_controller", text_controller)
 
+    # Loading file manually because of a strange error that attaches /home/lorenzo in front
+    # of the path passed as parameter in the method QQmlApplicationEngine::load(url: QUrl)
     window_qml = pkg_resources.read_text(data, "window.qml")
-
+    # Loading file from an array of bytes
     view.loadData(QByteArray(bytearray(window_qml, "utf_8")))
 
     sys.exit(app.exec())
