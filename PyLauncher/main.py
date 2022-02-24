@@ -75,8 +75,15 @@ def start():
     app = QApplication(sys.argv)
     view = QQmlApplicationEngine(app)
 
-    config = pkg_resources.read_text(configs, "config.json")
-    data = json.loads(config)
+    user_config_file_path = os.path.expanduser("~") + "/.config/PyLauncher/config.json"
+
+    if not os.path.exists(user_config_file_path):
+        config = pkg_resources.read_text(configs, "config.json")
+        with open(user_config_file_path, 'w') as file:
+            file.write(config)
+
+    with open(user_config_file_path, 'w') as file:
+        data = json.load(file)
 
     program_list_model = ProgramsListModel(data)
     filter_proxy_model = QSortFilterProxyModel()
