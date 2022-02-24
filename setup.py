@@ -5,16 +5,13 @@ from setuptools import setup, find_packages
 setup(
     name='PyLauncher',
     version='1.0.0',
-    packages=find_packages(""),
-    package_dir={"": "PyLauncher"},
+    packages=find_packages("src"),
+    package_dir={"src": "PyLauncher"},
     package_data={
         "PyLauncher": ["config/*.json", "data/*.qml"]
     },
     install_requires=["PyQt5;python_version<'5.15.6'"],
     python_requires=">=3.8",
-    data_files=[
-        (site.USER_BASE, ['PyLauncher/config/config.json'])
-    ],
     url='',
     license='MIT',
     author='lorenzo',
