@@ -1,4 +1,3 @@
-import encodings
 import typing
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -19,13 +18,11 @@ class TextController(QObject):
         super().__init__(parent=parent)
         self.app = app
         self.filter_proxy_model = filter_proxy_model
-        self.thread = QThreadImpl(app, parent, self)
 
     @pyqtSlot(str)
     def on_enter(self, text):
-        self.thread.set_command(text)
-        self.thread.start()
-        self.thread.wait()
+        os.system("(" + text + "& ) && exit")
+        self.app.quit()
 
     @pyqtSlot(str)
     def on_edit(self, text):
@@ -65,7 +62,8 @@ class QThreadImpl(QThread):
         self.command = command
 
     def run(self):
-        pass
+        os.system("(" + self.command + "& ) && exit")
+
 
 def start():
     app = QApplication(sys.argv)
