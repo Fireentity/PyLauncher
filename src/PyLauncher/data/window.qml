@@ -11,6 +11,7 @@ Window {
     Component.onCompleted: {
         requestActivate()
     }
+
     flags: Qt.BypassWindowManagerHint
     x: 0
     y: 0
@@ -25,11 +26,6 @@ Window {
             Window.window.close()
             Qt.quit()
         }
-    }
-
-    Keys.onEscapePressed: {
-        Window.window.close()
-        Qt.quit()
     }
 
     Rectangle {
@@ -85,6 +81,10 @@ Window {
                         Keys.onUpPressed: {
                             list_view.decrementCurrentIndex()
                             text=list_view.currentItem.children[0].text
+                        }
+                        Keys.onEscapePressed: {
+                            Window.window.close()
+                            Qt.quit()
                         }
                         onTextEdited: {
                             text_controller.on_edit(text)
