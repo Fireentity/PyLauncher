@@ -20,10 +20,6 @@ Window {
     width: 800
     height: 200
 
-    onActiveChanged: {
-        requestActive()
-    }
-
     Rectangle {
         objectName: "main_container"
         anchors.centerIn: parent
@@ -73,6 +69,9 @@ Window {
                     }
                     onTextEdited: {
                         text_controller.on_edit(text)
+                    }
+                    onActiveChanged: {
+                        forceActiveFocus()
                     }
                     Component.onCompleted: {
                         forceActiveFocus()
