@@ -46,13 +46,13 @@ Window {
                     verticalAlignment: TextInput.AlignVCenter
                     color: "#a9b7c6"
                     text: "command: "
-                    Layout.fillHeight: true
+                    height: parent.height
                 }
 
                 TextInput {
                     id: search_field
                     verticalAlignment: TextInput.AlignVCenter
-                    Layout.fillHeight: true
+                    height: parent.height
                     Layout.fillWidth: true
                     color: "#a9b7c6"
                     activeFocusOnPress: true
