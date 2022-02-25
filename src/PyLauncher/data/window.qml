@@ -29,12 +29,16 @@ Window {
     }
 
     Rectangle {
+
         color: "#3B4252"
         x: Screen.width / 2 - width / 2
         y: Screen.height / 2 - height / 2
         visible: true
         width: 800
         height: 200
+
+        border.color : "#88c0d0"
+        border.width : 1
 
         Rectangle {
             anchors.centerIn: parent
