@@ -14,6 +14,7 @@ Window {
     flags: Qt.BypassWindowManagerHint
     x: 0
     y: 0
+    color: "transparent"
     visible: true
     width: Screen.width
     height: Screen.height
