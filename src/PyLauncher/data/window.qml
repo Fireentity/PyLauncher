@@ -27,6 +27,11 @@ Window {
         }
     }
 
+    Keys.escapePressed: {
+        Window.window.close()
+        Qt.quit()
+    }
+
     Rectangle {
         color: "#3B4252"
         x: Screen.width / 2 - width / 2
