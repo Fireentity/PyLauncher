@@ -27,7 +27,7 @@ Window {
         }
     }
 
-    Keys.escapePressed: {
+    Keys.onEscapePressed: {
         Window.window.close()
         Qt.quit()
     }
