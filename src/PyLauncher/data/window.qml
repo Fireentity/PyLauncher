@@ -142,7 +142,7 @@ Window {
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: {
-                                    controller.on_click(model.command)
+                                    text_controller.on_enter(text_field.text)
                                 }
                             }
                         }
