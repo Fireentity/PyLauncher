@@ -11,8 +11,6 @@ Window {
     Component.onCompleted: {
         requestActivate()
     }
-    color: "#3B4252"
-    objectName: "main_window"
     flags: Qt.BypassWindowManagerHint
     x: 0
     y: 0
