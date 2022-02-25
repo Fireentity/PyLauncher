@@ -130,7 +130,7 @@ Window {
 
                     delegate: Component {
                         Rectangle {
-                            width: 100
+                            width: parent.width
                             height: 20
                             color: "transparent"
                             Text {
