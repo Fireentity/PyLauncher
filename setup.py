@@ -17,7 +17,7 @@ setup(
     description='A simple python launcher',
     include_package_data=True,
     entry_points={
-        "setuptools.installation": [
+        "console_scripts": [
             "PyLauncher = PyLauncher.main:start",
         ]
     }
