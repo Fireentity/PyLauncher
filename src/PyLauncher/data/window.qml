@@ -21,7 +21,7 @@ Window {
     height: 200
 
     onActiveChanged: {
-        forceActiveFocus()
+        requestActivate()
     }
 
     Rectangle {
