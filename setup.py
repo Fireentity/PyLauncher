@@ -15,5 +15,10 @@ setup(
     author='lorenzo',
     author_email='croceclaudio57@gmail.com',
     description='A simple python launcher',
-    include_package_data=True
+    include_package_data=True,
+    entry_points={
+        "setuptools.installation": [
+            "PyLauncher = PyLauncher:start",
+        ]
+    }
 )
