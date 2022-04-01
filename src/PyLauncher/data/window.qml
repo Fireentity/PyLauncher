@@ -37,9 +37,6 @@ Window {
         width: 800
         height: 200
 
-        border.color : "#88c0d0"
-        border.width : 1
-
         Rectangle {
             anchors.centerIn: parent
             width:  parent.width - 40
